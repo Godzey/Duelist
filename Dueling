@@ -37,17 +37,29 @@ public class Dueling extends JavaPlugin {
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String commandlabel, String[] args) {
+		Player s = (Player)sender;
+		Player target = s.getServer().getPlayer(args[0]);
+		
+		
 		
 		if (commandlabel.equalsIgnoreCase("duel")){
 			if(args.length==0){
-				((Player) sender).sendMessage(ChatColor.BLUE + "You have entered [Duel] command.");
-							
+				s.sendMessage(ChatColor.RED + "ERROR 1");
+				s.sendMessage(ChatColor.BLUE + "If there is something wrong please contact Godzey at [Godzey@1337.no].");
+				
 				}
+			else if(args.length==1){
+				s.sendMessage(ChatColor.RED + "ERROR 2");
+				s.sendMessage(ChatColor.BLUE + "If there is something wrong please contact Godzey at [Godzey@1337.no].");
 			}
-		else if (commandlabel.equalsIgnoreCase("getsword")){
-			
-			
-			
+			else if(args.length==2){
+				s.sendMessage(ChatColor.GREEN + "You have dueled" + target);
+				s.sendMessage(ChatColor.GREEN + "Wait for" + target + "to respond");
+				target.sendMessage(ChatColor.GREEN + sender.getName() + "has requested a duel.");
+				target.sendMessage(ChatColor.GREEN + "Will you /daccept this or /ddeny?");
+				s.sendMessage(ChatColor.BLUE + "If there is something wrong please contact Godzey at [Godzey@1337.no].");
+				
+			}
 		}
 			
 		return false;
