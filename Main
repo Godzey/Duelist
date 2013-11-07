@@ -1,0 +1,16 @@
+package io.github.Godzey.Duelist;
+
+
+
+public class Main {
+
+	@Override
+	public void onEnable(){
+		
+	}
+	
+	@Override
+	public void onDisable(){
+		
+	}
+	
