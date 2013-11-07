@@ -1,4 +1,4 @@
-package org.godzey.dueling;
+package github.godzey.dueling;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -8,12 +8,11 @@ import org.bukkit.event.player.PlayerMoveEvent;
 
 public class DuelingPlayerListener implements Listener{
 
-	@SuppressWarnings("unused")
 	private Dueling plugin;
 	
 	DuelingPlayerListener(Dueling plugin)
 	{
-		this.plugin = plugin;
+		this.setPlugin(plugin);
 	}
 	
 	@EventHandler(priority = EventPriority.LOW)
@@ -26,6 +25,14 @@ public class DuelingPlayerListener implements Listener{
 			player.setFoodLevel(20);
 			player.setSaturation(20F);
 		}
+	}
+
+	public Dueling getPlugin() {
+		return plugin;
+	}
+
+	public void setPlugin(Dueling plugin) {
+		this.plugin = plugin;
 	}
 	
 }
