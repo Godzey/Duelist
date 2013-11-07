@@ -1,16 +1,54 @@
-package io.github.Godzey.Duelist;
+package org.godzey.dueling;
 
+import java.util.logging.Logger;
 
+import org.bukkit.ChatColor;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.bukkit.plugin.java.JavaPlugin;
 
-public class Main {
-
-	@Override
-	public void onEnable(){
+public class Main extends JavaPlugin {
+	public final Logger logger = Logger.getLogger("Minecraft");
+	public Dueling plugin;
+	public boolean enabled = false;
+	public final DuelingPlayerListener pl = new DuelingPlayerListener(this);
+	public commandUsed cmdUsed;
+	
+	public enum commandUsed {
 		
 	}
 	
 	@Override
-	public void onDisable(){
+	public void onEnable() {
 		
+		getLogger().info("Plugin: Dueling has started.");
+		getServer().getPluginManager().registerEvents(new DuelingPlayerListener(this), this);
+
 	}
-	
+
+	@Override
+	public void onDisable() {
+		
+		getLogger().info("Plugin: Dueling has stopped.");
+
+	}
+
+	@Override
+	public boolean onCommand(CommandSender sender, Command cmd, String commandlabel, String[] args) {
+		
+		if (commandlabel.equalsIgnoreCase("duel")){
+			if(args.length==0){
+				((Player) sender).sendMessage(ChatColor.BLUE + "You have entered [Duel] command.");
+							
+				}
+			}
+		else if (commandlabel.equalsIgnoreCase("getsword")){
+			
+			
+			
+		}
+			
+		return false;
+	}
+}
