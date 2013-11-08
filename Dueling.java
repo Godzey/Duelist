@@ -31,11 +31,6 @@ public class Dueling extends JavaPlugin implements Listener {
                 this.getCommand("duel").setExecutor(this);
                 this.getCommand("duel accept").setExecutor(this);
                 this.getCommand("duel deny").setExecutor(this);
-                
-                for (Player player : this.getServer().getOnlinePlayers()) {
-                    playerList.put(player, playerData(player));
-                    }
-
         }
 
         @Override
