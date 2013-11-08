@@ -23,7 +23,7 @@ public class Dueling extends JavaPlugin {
 	@Override
 	public void onEnable() {
 		
-		getLogger().info("Plugin: Dueling has started.");
+		log.log(Level.INFO, String.format("[%s] Successfully enabled version %s!", getDescription().getName(), getDescription().getVersion()));
 		getServer().getPluginManager().registerEvents(new DuelingPlayerListener(this), this);
 
 	}
@@ -31,7 +31,7 @@ public class Dueling extends JavaPlugin {
 	@Override
 	public void onDisable() {
 		
-		getLogger().info("Plugin: Dueling has stopped.");
+		log.log(Level.INFO, String.format("[%s] Successfully disabled version %s!", getDescription().getName(), getDescription().getVersion()));
 
 	}
 
@@ -44,22 +44,27 @@ public class Dueling extends JavaPlugin {
 		
 		if (commandlabel.equalsIgnoreCase("duel")){
 			if(args.length==0){
-				s.sendMessage(ChatColor.RED + "ERROR 1");
+				s.sendMessage(ChatColor.GREEN + "This player isn't reconized");
+				s.sendMessage(ChatColor.BLUE + "[Duelist development command 1]");
 				s.sendMessage(ChatColor.BLUE + "If there is something wrong please contact Godzey at [Godzey@1337.no].");
 				
 				}
 			else if(args.length==1){
-				s.sendMessage(ChatColor.RED + "ERROR 2");
+				s.sendMessage(ChatColor.GREEN + "This player is offline");
+				s.sendMessage(ChatColor.BLUE + "[Duelist development command 2]");
 				s.sendMessage(ChatColor.BLUE + "If there is something wrong please contact Godzey at [Godzey@1337.no].");
-			}
+				}
 			else if(args.length==2){
 				s.sendMessage(ChatColor.GREEN + "You have dueled" + target);
-				s.sendMessage(ChatColor.GREEN + "Wait for" + target + "to respond");
+				s.sendMessage(ChatColor.GREEN + "Waiting for" + target + "to respond");
 				target.sendMessage(ChatColor.GREEN + sender.getName() + "has requested a duel.");
-				target.sendMessage(ChatColor.GREEN + "Will you /daccept this or /ddeny?");
-				s.sendMessage(ChatColor.BLUE + "If there is something wrong please contact Godzey at [Godzey@1337.no].");
-				
+				target.sendMessage(ChatColor.GREEN + "Will you /duel accept this or /duel deny?");
+				s.sendMessage(ChatColor.BLUE + "If there is something wrong please contact Godzey at [Godzey@1337.no].");	
+				}
+			else if (target = p){
+				s.sendMessage(ChatColor.GREEN + "You can't duel yourself, dummy <3");
 			}
+			
 		}
 			
 		return false;
